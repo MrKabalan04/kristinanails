@@ -68,3 +68,29 @@ supabase.channel('public:services')
 
 // Initial load
 document.addEventListener('DOMContentLoaded', fetchServices);
+// LIGHT/DARK MODE TOGGLE
+const themeBtn = document.getElementById("themeToggle");
+const body = document.body;
+
+// Set initial theme based on preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.className = savedTheme;
+    const icon = themeBtn.querySelector("i");
+    if (savedTheme === 'dark-mode') icon.classList.replace("fa-sun", "fa-moon");
+    else icon.classList.replace("fa-moon", "fa-sun");
+}
+
+// Toggle on button click
+themeBtn.addEventListener("click", () => {
+    const icon = themeBtn.querySelector("i");
+    if (body.classList.contains("light-mode")) {
+        body.classList.replace("light-mode", "dark-mode");
+        icon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem('theme', 'dark-mode');
+    } else {
+        body.classList.replace("dark-mode", "light-mode");
+        icon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem('theme', 'light-mode');
+    }
+});
