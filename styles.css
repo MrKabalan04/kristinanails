@@ -1,0 +1,240 @@
+/* General body and container styles */
+:root {
+    --bg-color-light: #f4f2f3;
+    --bg-color-dark: #121212;
+    --text-color-light: #222;
+    --text-color-dark: #f0f0f0;
+    --accent-color: #ff8db7;
+    --border-color: #d1c8cb;
+    --border-color-dark: #333;
+    --main-bg-light: #fff;
+    --main-bg-dark: #000;
+}
+
+body {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    font-family: serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+
+body.light-mode .price-list-container {
+    border: 2px solid var(--border-color);
+    background-color: var(--main-bg-light);
+}
+
+body.light-mode .footer::before {
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+}
+
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark-mode .price-list-container {
+    border: 2px solid var(--border-color-dark);
+    background-color: var(--main-bg-dark);
+}
+
+body.dark-mode .footer::before {
+    background: linear-gradient(to right, transparent, var(--border-color-dark), transparent);
+}
+
+.price-list-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Header, "Powered by" and theme toggle */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.powered-by-text {
+    font-size: 1em;
+    font-weight: 700;
+    color: inherit;
+    letter-spacing: 1px;
+}
+
+/* Light/Dark Mode Toggle */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+/* Typography and colors */
+.script-font {
+    font-family: 'Dancing Script', cursive;
+    color: var(--accent-color);
+    font-weight: 400;
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 0 0 20px 0;
+}
+
+.header h1 .script-font {
+    font-size: 1.5em;
+    position: relative;
+    left: -10px;
+}
+
+/* Price list styles */
+#services-border {
+    position: relative;
+    padding: 0 10px;
+}
+
+/* Service item container */
+.services {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    position: relative;
+}
+
+/* The vertical line on each service item */
+.services::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 70%; /* Adjusted to 70% to move it further right */
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 1px;
+    background-color: var(--accent-color);
+    margin: 0 10px; /* Adjust gap around the line */
+}
+
+body.dark-mode .services::after {
+    background-color: var(--accent-color);
+}
+
+.service-name {
+    flex-basis: 50%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding-right: 20px;
+}
+
+.service-price {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 20px;
+}
+
+.price-line {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.number {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.unit {
+    font-size: 0.9em;
+    font-weight: 400;
+    color: var(--accent-color);
+}
+
+/* Footer styles */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.socials a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.socials a i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.logo {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.logo h2 {
+    font-size: 2.5em;
+    font-weight: 400;
+    margin: 0;
+}
+
+.logo-nails {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 0.5em;
+    letter-spacing: 2px;
+    color: inherit;
+    vertical-align: super;
+}
