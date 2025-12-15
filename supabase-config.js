@@ -8,5 +8,5 @@ export function createClient() {
     throw new Error("Supabase SDK not loaded. Check script order in index.html");
   }
 
-  return window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+  return window.supabase.createClient(supabaseUrl, supabaseKey);
 }
